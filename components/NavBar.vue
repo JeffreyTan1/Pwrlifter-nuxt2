@@ -9,12 +9,12 @@
     <span v-else class="flex gap-x-16">
       <a
         class="font-bold cursor-pointer"
-        href="https://pwrlifter.auth.ap-southeast-2.amazoncognito.com/login?client_id=5v9ssu9o5ri02k6nu2ng9ruu60&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=http://localhost:3000/callback/login">
+        href="https://pwrlifter.auth.ap-southeast-2.amazoncognito.com/login?client_id=5v9ssu9o5ri02k6nu2ng9ruu60&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=process.env.BASE_URL/callback/login">
         Login
       </a>
       <a
         class="font-bold cursor-pointer"
-        href="https://pwrlifter.auth.ap-southeast-2.amazoncognito.com/signup?client_id=5v9ssu9o5ri02k6nu2ng9ruu60&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=http://localhost:3000/callback/login">
+        href="https://pwrlifter.auth.ap-southeast-2.amazoncognito.com/signup?client_id=5v9ssu9o5ri02k6nu2ng9ruu60&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=process.env.BASE_URL/callback/login">
         Signup
       </a>
     </span>

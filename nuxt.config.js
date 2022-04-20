@@ -39,7 +39,7 @@ export default {
   modules: ['@nuxtjs/axios'],
 
   axios: {
-    host: 'http://localhost:3000',
+    host: 'process.env.BASE_URL',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -47,5 +47,9 @@ export default {
 
   router: {
     middleware: ['auth'],
+  },
+
+  env: {
+    baseUrl: process.env.BASE_URL || 'process.env.BASE_URL',
   },
 }

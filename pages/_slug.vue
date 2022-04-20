@@ -17,13 +17,13 @@
         </NuxtLink> -->
         <a
         class="min-w-[6rem] py-2 px-3.5 bg-red inline text-s font-bold text-center" 
-        href="https://pwrlifter.auth.ap-southeast-2.amazoncognito.com/login?client_id=5v9ssu9o5ri02k6nu2ng9ruu60&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=http://localhost:3000/callback/login">
+        href="https://pwrlifter.auth.ap-southeast-2.amazoncognito.com/login?client_id=5v9ssu9o5ri02k6nu2ng9ruu60&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=process.env.BASE_URL/callback/login">
         Login
         </a>
 
         <a
         class="min-w-[6rem] py-2 px-3.5 bg-red inline text-s font-bold text-center" 
-        href="https://pwrlifter.auth.ap-southeast-2.amazoncognito.com/signup?client_id=5v9ssu9o5ri02k6nu2ng9ruu60&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=http://localhost:3000/callback/login">
+        href="https://pwrlifter.auth.ap-southeast-2.amazoncognito.com/signup?client_id=5v9ssu9o5ri02k6nu2ng9ruu60&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=process.env.BASE_URL/callback/login">
         Signup
         </a>
       </div>
