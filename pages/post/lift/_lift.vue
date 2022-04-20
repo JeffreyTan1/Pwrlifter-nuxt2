@@ -158,8 +158,8 @@ export default {
         method: "POST",
         body: formData,
         headers: {
-          host: "process.env.BASE_URL",
-          Origin: "process.env.BASE_URL",
+          host: process.env.baseUrl,
+          Origin: process.env.baseUrl,
         }
       }).catch(
         (e) => console.error(e)

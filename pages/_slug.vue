@@ -17,13 +17,13 @@
         </NuxtLink> -->
         <a
         class="min-w-[6rem] py-2 px-3.5 bg-red inline text-s font-bold text-center" 
-        href="https://pwrlifter.auth.ap-southeast-2.amazoncognito.com/login?client_id=5v9ssu9o5ri02k6nu2ng9ruu60&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=process.env.BASE_URL/callback/login">
+        :href="'https://pwrlifter.auth.ap-southeast-2.amazoncognito.com/login?client_id=5v9ssu9o5ri02k6nu2ng9ruu60&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=' + currentUrl + '/callback/login'">
         Login
         </a>
 
         <a
         class="min-w-[6rem] py-2 px-3.5 bg-red inline text-s font-bold text-center" 
-        href="https://pwrlifter.auth.ap-southeast-2.amazoncognito.com/signup?client_id=5v9ssu9o5ri02k6nu2ng9ruu60&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=process.env.BASE_URL/callback/login">
+        :href="'https://pwrlifter.auth.ap-southeast-2.amazoncognito.com/signup?client_id=5v9ssu9o5ri02k6nu2ng9ruu60&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=' + currentUrl + '/callback/login'">
         Signup
         </a>
       </div>
@@ -97,6 +97,9 @@ export default {
   computed: {
     user() {
       return this.$store.state.auth.user
+    },
+    currentUrl() {
+      return process.env.baseUrl
     },
     total() {
       const squatKg = this.res.squat.unit === 'kg' ? Number(this.res.squat.weight) : Number(this.res.squat.weight) / 2.20462262185
