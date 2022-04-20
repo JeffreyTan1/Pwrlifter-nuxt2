@@ -1,5 +1,5 @@
 <template>
-  <div class="py-2 px-4 bg-red">
+  <div class="py-3 px-4 bg-red">
       <font-awesome-icon class="text-white" :icon="name"/> 
   </div>
 </template>

@@ -15,10 +15,16 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@fortawesome/fontawesome-svg-core/styles.css'],
+  css: [
+    '@fortawesome/fontawesome-svg-core/styles.css',
+    { src: '~/plugins/persistedState.client.js' },
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/fontawesome.js'],
+  plugins: [
+    '~/plugins/fontawesome.js',
+    { src: '~/plugins/persistedState.client.js' },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -30,8 +36,16 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ['@nuxtjs/axios'],
+
+  axios: {
+    host: 'http://localhost:3000',
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  router: {
+    middleware: ['auth'],
+  },
 }
