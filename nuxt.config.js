@@ -50,6 +50,6 @@ export default {
   },
 
   env: {
-    baseUrl: process.env.BASE_URL || 'https://pwrlifter.com',
+    baseUrl: 'https://pwrlifter.com',
   },
 }
