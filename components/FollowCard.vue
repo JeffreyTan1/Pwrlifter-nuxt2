@@ -1,6 +1,6 @@
 <template>
   <NuxtLink :to="'/' + name">
-    <div class="w-44 h-44 bg-grey flex justify-center items-center" >
+    <div class="w-44 h-44 bg-grey flex justify-center items-center flex-col" >
       <img :src="'https://d6eerfex7ow65.cloudfront.net/' + name + ';' + 'profilePic'"/>
       <h2>{{ name }}</h2>
     </div>
