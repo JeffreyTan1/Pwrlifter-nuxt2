@@ -34,13 +34,18 @@
         <input ref="video" id="video" type="file" class="text-white" accept="video/mp4" @change="onFileChange"/>
       </div>
 
-      <video width="320" height="600" controls :src="videoPath"/>
+      <video class="mx-auto mt-10" width="320" height="600" controls :src="videoPath"/>
       
-      <div v-if="presignedPost" class="flex justify-end mt-10">
+      <div v-if="presignedPost" class="flex justify-end mt-10 flex-col">
         <button class="py-2 px-3.5 bg-red inline text-s font-bold min-w-[6rem] text-center" @click="upload">
           {{ isUploading ? 'Uploading...' : 'Upload' }}
         </button>
+        <h2 v-if="presignedPost">Please note it may take up to 5 minutes before your profile is updated with new content.</h2>
       </div>
+
+      
+
+      
       
     </div>
 
@@ -110,7 +115,7 @@ export default {
     onFileChange(e) {
       const file = e.target.files[0]
 
-      if(file.size > 	1000000) {
+      if(file.size > 	100000000) {
         alert('File Too Large. Maximum size = 100MB')
         this.$refs.video.value = ''
         this.videoPath = null
@@ -119,7 +124,7 @@ export default {
       else {
         const path = (window.URL || window.webkitURL).createObjectURL(file);
         this.videoPath = path
-        this.presignedPost = this.$axios.$post('https://rz7wshkfyh.execute-api.ap-southeast-2.amazonaws.com/prod/presigned-url',
+        this.$axios.$post('https://rz7wshkfyh.execute-api.ap-southeast-2.amazonaws.com/prod/presigned-url',
           {
             action: this.lift,
           },
@@ -134,7 +139,7 @@ export default {
           }
         ).then(
           (res) => {
-            console.info(res)
+            //console.info(res)
             this.presignedPost = res
           }
         )

@@ -7,6 +7,9 @@
       <SearchBar />
       <h1 class="text-5xl font-bold">A portfolio for your best powerlifts</h1>
       <div class="flex justify-center items-center gap-16" v-if="user === null">
+        <NuxtLink :to="'/analytics/dashboard'" class="py-2 px-3.5 bg-red inline text-s font-bold text-center">
+          Analytics
+        </NuxtLink>
 
         <!-- <NuxtLink to="/accounts/login" class="min-w-[6rem] py-2 px-3.5 bg-red inline text-s font-bold text-center">
           Login
@@ -17,17 +20,20 @@
         </NuxtLink> -->
         <a
         class="min-w-[6rem] py-2 px-3.5 bg-red inline text-s font-bold text-center" 
-        :href="'https://pwrlifter.auth.ap-southeast-2.amazoncognito.com/login?client_id=5v9ssu9o5ri02k6nu2ng9ruu60&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=' + currentUrl + '/callback/login'">
+        :href="'https://auth.pwrlifter.com/login?client_id=5v9ssu9o5ri02k6nu2ng9ruu60&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=' + currentUrl + '/callback/login'">
         Login
         </a>
 
         <a
         class="min-w-[6rem] py-2 px-3.5 bg-red inline text-s font-bold text-center" 
-        :href="'https://pwrlifter.auth.ap-southeast-2.amazoncognito.com/signup?client_id=5v9ssu9o5ri02k6nu2ng9ruu60&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=' + currentUrl + '/callback/login'">
+        :href="'https://auth.pwrlifter.com/signup?client_id=5v9ssu9o5ri02k6nu2ng9ruu60&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=' + currentUrl + '/callback/login'">
         Signup
         </a>
       </div>
       <div v-else class="flex justify-center items-center gap-16">
+        <NuxtLink :to="'/analytics/dashboard'" class="py-2 px-3.5 bg-red inline text-s font-bold text-center">
+          Analytics
+        </NuxtLink>
         <NuxtLink :to="'/' + user" class="py-2 px-3.5 bg-red inline text-s font-bold text-center">
           My Profile
         </NuxtLink>
@@ -50,9 +56,10 @@
 
     <div class="min-w-screen h-30 flex justify-between items-center flex-wrap gap-y-10">
       <div class="flex">
-        <div class="w-28 h-26 bg-grey mr-10 inline relative">IMG
+        <div class="w-28 h-26 bg-grey mr-10 inline relative" >
+          <img :src="'https://d6eerfex7ow65.cloudfront.net/' + slug + ';' + 'profilePic'"/>
           <!-- Allow edits when user is the same as page -->
-          <NuxtLink class="absolute bottom-0 right-0 scale-75" :to="'/post/user'" v-if="user === slug">
+          <NuxtLink class="absolute bottom-0 right-0 scale-75" :to="'/post/profile'" v-if="user === slug">
             <IconButton :name="'edit'"/>
           </NuxtLink>
         </div>
