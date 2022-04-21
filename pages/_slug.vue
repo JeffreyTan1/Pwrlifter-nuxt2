@@ -75,7 +75,7 @@
           <IconButton :name="isFollowing ? 'x' : 'plus'" v-if="user !== null && user !== slug"/>
         </button>
 
-        <IconButton :name="'share'"/>    
+        <IconButton :name="'share'"/>
       </div>
         
       </div>
