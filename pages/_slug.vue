@@ -75,7 +75,13 @@
           <IconButton :name="isFollowing ? 'x' : 'plus'" v-if="user !== null && user !== slug"/>
         </button>
 
-        <IconButton :name="'share'"/>
+        <div class="flex flex-col items-end">
+          <button @click="copy">
+            <IconButton :name="'share'"/>
+          </button>
+          <p v-if="copied">Link copied!</p>
+        </div>
+
       </div>
         
       </div>
@@ -128,6 +134,7 @@ export default {
   data() {
     return {
       slug: null,
+      copied: false,
     }
   },
   methods: {
@@ -158,6 +165,12 @@ export default {
       )
       
     },
+
+    copy() {
+      const path = window.location.href
+      navigator.clipboard.writeText(window.location.href);
+      this.copied = true;
+    }
 
   },
   async asyncData({params, $axios}) {
